@@ -94,4 +94,4 @@ LEFT JOIN lesson AS l ON l.lesson_id = e.lesson_id
 LEFT JOIN student_lesson AS sl ON e.lesson_id = sl.lesson_id
 GROUP BY e.lesson_id, dow.day, l.time_of_lesson
 HAVING EXTRACT(WEEK FROM l.time_of_lesson) = EXTRACT(WEEK FROM NOW()) +1
-ORDER BY dow.day, e.ensemble_genre;
+ORDER BY EXTRACT(DOW FROM l.time_of_lesson), e.ensemble_genre;
